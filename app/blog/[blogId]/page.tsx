@@ -1,8 +1,13 @@
 'use client';
 
-import { default as BlogPage } from '@/Organism/Blog';
 import { useEffect, useState } from 'react';
+
+import { default as BlogPage } from '@/Organism/Blog';
+import { Comment } from '@/Organism/Comment';
+
 import BlogPostData from '@/Constants/blog.json';
+
+import { IBlogData } from '@/types/BlogDataTypes';
 
 type BlogPramsType = {
   params: {
@@ -12,7 +17,7 @@ type BlogPramsType = {
 
 const Blog = ({ params }: BlogPramsType) => {
   const blogId = params?.blogId;
-  const [blogPost, setBlogPost] = useState<any>();
+  const [blogPost, setBlogPost] = useState<IBlogData>();
 
   useEffect(() => {
     const PostData = BlogPostData.BlogsData;
@@ -22,7 +27,13 @@ const Blog = ({ params }: BlogPramsType) => {
     setBlogPost(currentPost);
   }, [blogId]);
 
-  return <BlogPage postData={blogPost} />;
+  return (
+    <>
+      <BlogPage postData={blogPost} />
+
+      <Comment />
+    </>
+  );
 };
 
 export default Blog;

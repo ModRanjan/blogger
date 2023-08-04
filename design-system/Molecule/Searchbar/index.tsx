@@ -39,7 +39,7 @@ export const Searchbar: FC<ISearchbar> = ({
 
       <input
         type="text"
-        className="px-3 py-[6px] rounded-lg md:w-[100px] lg:w-[300px]"
+        className="px-3 py-[6px] rounded-lg md:w-[100px] lg:w-[300px] outline-none"
         placeholder={placeholder}
       />
 
