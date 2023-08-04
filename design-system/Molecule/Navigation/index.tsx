@@ -1,11 +1,11 @@
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 import Link from 'next/link';
 
 import { NavItems } from '@/Constants/NavItems';
 
 export const Navigation = ({ className, ...props }: { className: string }) => {
-  const Router = useRouter();
+  const pathname = usePathname();
 
   return (
     <nav
@@ -16,18 +16,16 @@ export const Navigation = ({ className, ...props }: { className: string }) => {
       {...props}
     >
       {NavItems.map((item) => {
-        // we can pu logic of active element here
-        const active = false;
-
         return (
           <Link
             key={item.name}
             href={item.url}
-            className={`text-sm py-3 px-6 md:p-0 h-11 md:h-auto font-medium transition-colors ${
-              active
+            className={classNames(
+              'py-3 px-6 md:p-0  md:h-auto font-medium transition-colors',
+              pathname === item.url
                 ? 'text-primary'
-                : 'text-muted-foreground hover:text-primary'
-            }`}
+                : 'text-neutral-500 hover:text-primary',
+            )}
           >
             {item.name}
           </Link>
