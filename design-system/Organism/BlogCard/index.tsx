@@ -33,23 +33,26 @@ export const BlogCard = ({
       <h2 className="mt-2 text-xl font-semibold card-title">{authorName}</h2>
 
       <div className="flex mt-3 gap-x-6">
-        <Paragraph className="text-sm ">{summary}</Paragraph>
+        <Paragraph className="text-sm text-ellipsis ">{summary}</Paragraph>
         <Image
           src={postBannerUrl}
           alt={'blog-post-banner'}
+          className="hidden lg:inline-block"
           width={96}
           height={96}
         />
       </div>
 
-      {tags.map((tag, index) => (
-        <span
-          key={index}
-          className="px-3 py-2 mr-2 text-xs font-semibold text-white rounded-3xl bg-neutral-400"
-        >
-          {tag}
-        </span>
-      ))}
+      <div className="flex flex-wrap">
+        {tags.map((tag, index) => (
+          <span
+            key={index}
+            className="px-3 py-2 mt-3 mr-2 text-xs font-semibold text-white rounded-3xl bg-neutral-400"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
     </div>
   );
 };
