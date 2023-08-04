@@ -16,9 +16,41 @@ import { IBlogData } from '@/types/BlogDataTypes';
 
 const Blogs = () => {
   const [Blogs, setBlogs] = useState<IBlogData[]>();
+  const [dataCount, setDataCount] = useState(0);
+  const [currentDataCount, setCurrentDataCount] = useState(2);
+
+  const HandleLeftPagination = () => {
+    if (currentDataCount >= 2) {
+      const tempBlogPosts = BlogPostData.BlogsData.slice(
+        currentDataCount - 2,
+        currentDataCount,
+      );
+
+      setCurrentDataCount((prev) => prev - 2);
+      setBlogs(tempBlogPosts);
+    }
+  };
+
+  const HandleRightPagination = () => {
+    if (currentDataCount <= dataCount) {
+      const tempBlogPosts = BlogPostData.BlogsData.slice(
+        currentDataCount,
+        currentDataCount + 2,
+      );
+
+      setCurrentDataCount((prev) => prev + 2);
+      setBlogs(tempBlogPosts);
+    }
+  };
+
   useEffect(() => {
     // this is temproryData latter we can use api for fetching data
-    const tempBlogPosts = BlogPostData.BlogsData.slice(0, 10);
+    const tempBlogPosts = BlogPostData.BlogsData.slice(0, 2);
+    const tempDataCount = BlogPostData.BlogsData.length;
+
+    console.log('datacount: ', tempDataCount);
+    setDataCount(tempDataCount);
+    setCurrentDataCount(2);
 
     setBlogs(tempBlogPosts);
   }, []);
@@ -51,8 +83,10 @@ const Blogs = () => {
       </div>
 
       <Pagination
-        leftClickHandler={() => console.log('first')}
-        rightClickHandler={() => console.log('first')}
+        totalDataCount={dataCount}
+        currentDataCount={currentDataCount}
+        leftClickHandler={HandleLeftPagination}
+        rightClickHandler={HandleRightPagination}
       />
     </>
   );
