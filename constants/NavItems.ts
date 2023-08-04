@@ -10,7 +10,7 @@ export const NavItems: NavItemType[] = [
   },
 
   {
-    name: 'Positions',
-    url: '/positions',
+    name: 'Create',
+    url: '/blog',
   },
 ];
