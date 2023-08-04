@@ -11,7 +11,7 @@ type BlogType = {
 const Blog = ({ postData }: BlogType) => {
   // for loading state
   if (postData === undefined) {
-    return <Loading />;
+    return <Loading maxWidth="max-w-3xl" />;
   }
 
   return (

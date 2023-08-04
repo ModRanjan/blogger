@@ -1,6 +1,19 @@
-export const Loading = () => {
+import classNames from 'classnames';
+
+type LoadingType = {
+  maxWidth: string;
+  border?: boolean;
+};
+
+export const Loading = ({ maxWidth, border }: LoadingType) => {
   return (
-    <div className="w-full max-w-3xl p-4 mx-auto border rounded-md shadow border-neutral-300">
+    <div
+      className={classNames(
+        'w-full p-4 mx-auto  rounded-md',
+        maxWidth,
+        border ? 'border border-neutral-300 shadow' : null,
+      )}
+    >
       <div className="flex flex-col space-x-4 animate-pulse">
         <div className="w-full h-9 bg-neutral-400"></div>
         <div className="flex-1 py-1 space-y-4">

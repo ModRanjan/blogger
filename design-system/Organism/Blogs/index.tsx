@@ -24,7 +24,7 @@ const Blogs = () => {
   }, []);
 
   if (!Blogs) {
-    return <Loading />;
+    return <Loading maxWidth="max-w-5xl" />;
   }
 
   return (
