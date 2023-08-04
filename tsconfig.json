@@ -20,7 +20,12 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/Atom*": ["./design-system/Atom/*"],
+      "@/Molecule*": ["./design-system/Molecule/*"],
+      "@/Organism*": ["./design-system/Organism/*"],
+      "@/Utils*": ["./utils/*"],
+      "@/Constants*": ["./constants/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
