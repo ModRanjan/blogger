@@ -16,7 +16,7 @@ const Blog = ({ postData }: BlogType) => {
 
   return (
     <div className="max-w-3xl mx-auto my-5">
-      <h2 className=" page-title">{postData?.title}</h2>
+      <h2 className="page-title">{postData?.title}</h2>
 
       <div className="flex gap-3 my-2">
         <Avatar

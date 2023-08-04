@@ -1,7 +1,9 @@
 'use client';
-import { Button } from '@/design-system/Atom/Button';
-import { Icon } from '@/design-system/Atom/Icon';
+
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from 'react-icons/ai';
+
+import { Button } from '@/Atom/Button';
+import { Icon } from '@/Atom/Icon';
 
 type PaginationType = {
   leftClickHandler: () => void;
@@ -9,6 +11,7 @@ type PaginationType = {
   totalDataCount: number;
   currentDataCount: number;
 };
+
 export const Pagination = ({
   leftClickHandler,
   rightClickHandler,
@@ -16,10 +19,10 @@ export const Pagination = ({
   currentDataCount,
 }: PaginationType) => {
   return (
-    <div className="text-black">
+    <div className="flex items-center text-black gap-x-3">
       <Button
         variant={'primary'}
-        className="rounded-full hover:bg-neutral-700 bg-neutral-500"
+        className="rounded-full hover:bg-neutral-700 bg-neutral-600"
         onClick={leftClickHandler}
         disabled={currentDataCount <= 2}
       >
@@ -29,7 +32,7 @@ export const Pagination = ({
 
       <Button
         variant={'primary'}
-        className="rounded-full hover:bg-neutral-700 bg-neutral-500"
+        className="rounded-full hover:bg-neutral-700 bg-neutral-600"
         onClick={rightClickHandler}
         disabled={currentDataCount >= totalDataCount}
       >

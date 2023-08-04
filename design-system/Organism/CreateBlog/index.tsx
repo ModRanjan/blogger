@@ -50,6 +50,18 @@ export const CreateBlogPost = () => {
           />
         </div>
 
+        <div className="flex flex-col gap-1 mb-3">
+          <label className="text-xs font-semibold text-neutral-600">
+            <span className="uppercase">Add Tags</span>{' '}
+            <span className="ml-2 ">max 3</span>
+          </label>
+          <input
+            type="text"
+            placeholder="tag"
+            className="px-3 py-[6px] outline-blue-400 rounded"
+          />
+        </div>
+
         <Button fullWidth className="mt-5 rounded-lg">
           Post
         </Button>

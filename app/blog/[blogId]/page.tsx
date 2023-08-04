@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import { default as BlogPage } from '@/Organism/Blog';
-import { Comment } from '@/Organism/Comment';
+import { Comments } from '@/Organism/Comments';
 
 import BlogPostData from '@/Constants/blog.json';
 
@@ -15,7 +15,7 @@ type BlogPramsType = {
   };
 };
 
-const Blog = ({ params }: BlogPramsType) => {
+export default function Blog({ params }: BlogPramsType) {
   const blogId = params?.blogId;
   const [blogPost, setBlogPost] = useState<IBlogData>();
 
@@ -27,13 +27,15 @@ const Blog = ({ params }: BlogPramsType) => {
     setBlogPost(currentPost);
   }, [blogId]);
 
+  const submitComment = () => {
+    console.log('first');
+  };
+
   return (
     <>
       <BlogPage postData={blogPost} />
 
-      <Comment />
+      <Comments commentHandler={submitComment} />
     </>
   );
-};
-
-export default Blog;
+}

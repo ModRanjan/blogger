@@ -7,17 +7,20 @@ import BlogPostData from '@/Constants/blog.json';
 
 import { CustomSaperator } from '@/Atom/Saperator';
 
-import { Loading } from '@/Molecule/Loading';
+import { BlogsLoading, Loading } from '@/Molecule/Loading';
 
 import { BlogCard } from '@/Organism/BlogCard';
 import { Pagination } from '@/Organism/Pagination';
 
 import { IBlogData } from '@/types/BlogDataTypes';
+import { MAX_BLOG_DATA_PER_PAGE } from '@/constants/Default';
 
 const Blogs = () => {
   const [Blogs, setBlogs] = useState<IBlogData[]>();
   const [dataCount, setDataCount] = useState(0);
-  const [currentDataCount, setCurrentDataCount] = useState(2);
+  const [currentDataCount, setCurrentDataCount] = useState(
+    MAX_BLOG_DATA_PER_PAGE,
+  );
 
   const HandleLeftPagination = () => {
     if (currentDataCount >= 2) {
@@ -48,7 +51,6 @@ const Blogs = () => {
     const tempBlogPosts = BlogPostData.BlogsData.slice(0, 2);
     const tempDataCount = BlogPostData.BlogsData.length;
 
-    console.log('datacount: ', tempDataCount);
     setDataCount(tempDataCount);
     setCurrentDataCount(2);
 
@@ -56,38 +58,39 @@ const Blogs = () => {
   }, []);
 
   if (!Blogs) {
-    return <Loading maxWidth="max-w-5xl" />;
+    return <BlogsLoading maxWidth="max-w-5xl" />;
   }
 
   return (
     <>
-      <div>
-        {Blogs.map((item) => {
-          return (
-            <div key={item.id}>
-              <Link href={`/blog/${item.id}`}>
-                <BlogCard
-                  avatarUrl={item.avatar}
-                  postBannerUrl={item.imgUrl}
-                  authorName={item.Author}
-                  summary={item.blogDescription}
-                  publishDate={item.Date}
-                  tags={item.tags}
-                />
-              </Link>
+      {Blogs.map((blog) => {
+        return (
+          <div key={blog.id}>
+            <Link href={`/blog/${blog.id}`}>
+              <BlogCard
+                title={blog.title}
+                avatarUrl={blog.avatar}
+                postBannerUrl={blog.imgUrl}
+                authorName={blog.Author}
+                summary={blog.blogDescription}
+                publishDate={blog.Date}
+                tags={blog.tags}
+              />
+            </Link>
 
-              <CustomSaperator className="my-8 border-t border-gray-300" />
-            </div>
-          );
-        })}
+            <CustomSaperator className="my-8 border-t border-gray-300" />
+          </div>
+        );
+      })}
+
+      <div className="flex justify-end">
+        <Pagination
+          totalDataCount={dataCount}
+          currentDataCount={currentDataCount}
+          leftClickHandler={HandleLeftPagination}
+          rightClickHandler={HandleRightPagination}
+        />
       </div>
-
-      <Pagination
-        totalDataCount={dataCount}
-        currentDataCount={currentDataCount}
-        leftClickHandler={HandleLeftPagination}
-        rightClickHandler={HandleRightPagination}
-      />
     </>
   );
 };

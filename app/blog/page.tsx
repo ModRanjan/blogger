@@ -1,11 +1,9 @@
 import { CreateBlogPost } from '@/Organism/CreateBlog';
 
-const CreatBlogPost = () => {
+export default function CreatBlogPost() {
   return (
-    <section className="py-12">
+    <div className="w-full max-w-5xl py-8 mx-auto lg:py-12">
       <CreateBlogPost />
-    </section>
+    </div>
   );
-};
-
-export default CreatBlogPost;
+}

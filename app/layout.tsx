@@ -15,8 +15,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen font-sans antialiased bg-background">
-        <div className="relative flex flex-col min-h-screen ">
+      <body className="font-sans antialiased">
+        <div className="relative flex flex-col min-h-screen">
           <Navbar />
 
           <section className="flex-1 py-[5rem] px-4">{children}</section>

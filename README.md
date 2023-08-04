@@ -4,9 +4,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ```bash
 git clone git@github.com:ModRanjan/blogger.git  # for Clone
+```
 
+```
 cd /blogger  # move to blogger directory
+```
 
+```
 npm run dev  # install packege dependencies
 # or
 yarn dev
@@ -14,4 +18,9 @@ yarn dev
 pnpm dev
 ```
 
-vercel deployed: [link]('https://blogger-olive.vercel.app/)
+Vercel deployed [link]('https://blogger-olive.vercel.app/).
+
+#### Recomendation :
+
+1. I haven't implemented form validation, we can implement them with formik and zod library.
+2. I have made all field of the create Blog compulsory. We may make some field optional (field like tags, banner).
