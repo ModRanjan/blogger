@@ -28,7 +28,7 @@ const Blog = ({ postData }: BlogType) => {
 
         <div>
           <h3>{postData.Author}</h3>
-          <p className="-m-0.5 text-neutral-600">
+          <p className="-m-1 text-sm text-neutral-600">
             Published in{' '}
             <span className="font-semibold text-neutral-800">
               The Coding Diaries
