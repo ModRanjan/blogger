@@ -1,21 +1,22 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 
 import BlogPostData from '@/Constants/blog.json';
 
 import { CustomSaperator } from '@/Atom/Saperator';
 
-import { BlogsLoading, Loading } from '@/Molecule/Loading';
+import { BlogsLoading } from '@/Molecule/Loading';
 
 import { BlogCard } from '@/Organism/BlogCard';
 import { Pagination } from '@/Organism/Pagination';
 
 import { IBlogData } from '@/types/BlogDataTypes';
 import { MAX_BLOG_DATA_PER_PAGE } from '@/constants/Default';
+import { useRouter } from 'next/navigation';
 
 const Blogs = () => {
+  const router = useRouter();
   const [Blogs, setBlogs] = useState<IBlogData[]>();
   const [dataCount, setDataCount] = useState(0);
   const [currentDataCount, setCurrentDataCount] = useState(
@@ -66,7 +67,7 @@ const Blogs = () => {
       {Blogs.map((blog) => {
         return (
           <div key={blog.id}>
-            <Link href={`/blog/${blog.id}`}>
+            <div onClick={() => router.push(`/blog/${blog.id}`)}>
               <BlogCard
                 title={blog.title}
                 avatarUrl={blog.avatar}
@@ -76,7 +77,7 @@ const Blogs = () => {
                 publishDate={blog.Date}
                 tags={blog.tags}
               />
-            </Link>
+            </div>
 
             <CustomSaperator className="my-8 border-t border-gray-300" />
           </div>

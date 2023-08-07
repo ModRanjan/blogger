@@ -33,6 +33,15 @@ export default function Blog({ params }: BlogPramsType) {
 
   return (
     <>
+      {/* we have only 2 pages so we can ignore this Back Button */}
+      {/* <Button className="border-none " onClick={() => router.push('/')}>
+        <Icon
+          icon={AiOutlineDoubleLeft}
+          className="inline-block w-4 h-4 -mt-1"
+        />
+        Back
+      </Button> */}
+
       <BlogPage postData={blogPost} />
 
       <Comments commentHandler={submitComment} />
