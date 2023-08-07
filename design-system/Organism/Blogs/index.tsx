@@ -63,21 +63,20 @@ const Blogs = () => {
   }
 
   return (
-    <>
+    <div className="max-w-5xl py-8 md:mx-auto">
       {Blogs.map((blog) => {
         return (
           <div key={blog.id}>
-            <div onClick={() => router.push(`/blog/${blog.id}`)}>
-              <BlogCard
-                title={blog.title}
-                avatarUrl={blog.avatar}
-                postBannerUrl={blog.imgUrl}
-                authorName={blog.Author}
-                summary={blog.blogDescription}
-                publishDate={blog.Date}
-                tags={blog.tags}
-              />
-            </div>
+            <BlogCard
+              title={blog.title}
+              avatarUrl={blog.avatar}
+              postBannerUrl={blog.imgUrl}
+              authorName={blog.Author}
+              summary={blog.blogDescription}
+              publishDate={blog.Date}
+              tags={blog.tags}
+              onclickHandler={() => router.push(`/blog/${blog.id}`)}
+            />
 
             <CustomSaperator className="my-8 border-t border-gray-300" />
           </div>
@@ -92,7 +91,7 @@ const Blogs = () => {
           rightClickHandler={HandleRightPagination}
         />
       </div>
-    </>
+    </div>
   );
 };
 

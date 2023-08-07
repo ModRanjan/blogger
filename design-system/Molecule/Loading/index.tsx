@@ -53,7 +53,7 @@ export const BlogsLoading = ({ maxWidth }: LoadingType) => {
             <div className="hidden w-full h-20 mt-3 rounded md:inline-block bg-neutral-400" />
           </div>
 
-          <div className="w-32 h-32 rounded bg-neutral-400"></div>
+          <div className="w-16 h-16 rounded md:w-32 md:h-32 bg-neutral-400"></div>
         </div>
 
         <div className="flex gap-x-3">
@@ -80,7 +80,7 @@ export const BlogsLoading = ({ maxWidth }: LoadingType) => {
             <div className="hidden w-full h-20 mt-3 rounded md:inline-block bg-neutral-400" />
           </div>
 
-          <div className="w-32 h-32 rounded bg-neutral-400"></div>
+          <div className="w-16 h-16 rounded md:w-32 md:h-32 bg-neutral-400"></div>
         </div>
 
         <div className="flex gap-x-3">

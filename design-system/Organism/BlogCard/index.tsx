@@ -13,6 +13,7 @@ export interface IBlogCard {
   summary: string;
   publishDate: string;
   tags: string[];
+  onclickHandler: () => void;
 }
 
 export const BlogCard = ({
@@ -23,9 +24,13 @@ export const BlogCard = ({
   summary,
   publishDate,
   tags,
+  onclickHandler,
 }: IBlogCard) => {
   return (
-    <div className="cursor-pointer">
+    <div
+      className="px-3 py-5 overflow-hidden cursor-pointer lg:px-6"
+      onClick={onclickHandler}
+    >
       <div className="flex items-center font-mono h-7 gap-x-4">
         <div className="flex items-center gap-x-2">
           <Avatar src={avatarUrl} alt={authorName} width={28} height={28} />

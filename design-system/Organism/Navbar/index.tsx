@@ -44,7 +44,7 @@ const Navbar = () => {
               onclickHandler={() => console.log('first')}
               leftIcon={BsSearch}
               placeholder="Search Blogger"
-              wrapperClass="lg:ml-6 pl-2"
+              wrapperClass="pl-2"
             />
 
             <Button
